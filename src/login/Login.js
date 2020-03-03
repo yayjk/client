@@ -6,21 +6,20 @@ function Login() {
     const pw = document.getElementById("password").value;
     if (pw !== "") {
       document.getElementById("loginSpin").style.display = "block";
-      console.log(pw);
+      if (pw === "develop") {
+        localStorage.setItem("login@yayjk.dev", true);
+        window.location.reload();
+      }
     }
   };
+
   return (
     <div className="container" id="loginScreen">
       <input type="password" id="password" placeholder="Enter password" />
       <button onClick={handleLogin}>Login</button>
-      <div
-        className="spinner-grow "
-        id="loginSpin"
-        role="status"
-        style={{ display: "none" }}
-      >
-        <span className="sr-only">Loading...</span>
-      </div>
+      <span id="loginSpin" style={{ display: "none" }}>
+        Wrong password
+      </span>
     </div>
   );
 }
