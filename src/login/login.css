@@ -1,0 +1,23 @@
+#loginScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#loginScreen > *:not(#loginSpin) {
+  width: 20em;
+  margin: 4px;
+  font-size: medium;
+}
+
+#loginScreen > button {
+  background-color: #027ad6;
+  border: 1px solid black;
+  padding: 4px;
+}
+
+#loginSpin {
+  width: 20px;
+  height: 20px;
+}

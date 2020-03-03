@@ -1,0 +1,91 @@
+#todoContainer {
+  display: grid;
+  grid-template-rows: 25vh auto;
+}
+
+#addTodo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#addTodo form > input {
+  margin: 0 10px;
+}
+
+.editForm {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.editForm > input:first-child {
+  width: 80%;
+}
+
+#todoContainer form > input[type="text"] {
+  border-radius: 4px;
+  border: 0.5px solid gray;
+  padding: 4px;
+}
+
+#todoContainer form > input[type="submit"] {
+  background-color: #36c755;
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  font-size: larger;
+}
+
+.taskComplete {
+  text-decoration: line-through;
+  flex-basis: 70%;
+  font-size: large;
+}
+
+.taskInComplete {
+  font-size: large;
+  flex-basis: 70%;
+}
+
+#todoContainer button {
+  padding: 4px;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+}
+
+.itemArea {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.itemActions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemActions > button {
+  margin-left: 10px;
+}
+
+.toDoItem {
+  margin: 10px 0;
+}
+
+.deleteBtn {
+  background-color: red;
+}
+
+.editBtn {
+  background-color: #027ad6;
+}
+
+.checkBtn {
+  background-color: #36c755;
+}
+.unCheckBtn {
+  background-color: tomato;
+}
