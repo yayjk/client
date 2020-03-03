@@ -2,9 +2,6 @@ import React from "react";
 import { Redirect, Route } from "react-router";
 
 const PrivateRoute = ({ component: Component, loggedIn, ...props }) => {
-  console.log(
-    "Private route loggedIn>>>>>>>>>>>>>>" + JSON.stringify({ loggedIn })
-  );
   return (
     <Route
       {...props}
@@ -25,9 +22,6 @@ const PrivateRoute = ({ component: Component, loggedIn, ...props }) => {
 };
 
 export const LoggedInRoute = ({ component: Component, loggedIn, ...props }) => {
-  console.log(
-    "Private route loggedIn>>>>>>>>>>>>>>" + JSON.stringify({ loggedIn })
-  );
   return (
     <Route
       {...props}

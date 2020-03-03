@@ -20,7 +20,6 @@ export default function Todo() {
     setProgress(true);
     const item = document.getElementById("item").value;
     axios.post(baseUrl + "todo", { item }).then(res => {
-      console.log(res);
       if (res.data.ok === 1) {
         setShouldRefresh(shouldRefresh + 1);
         document.getElementById("item").value = "";
@@ -47,7 +46,6 @@ export default function Todo() {
         { propName: "isComplete", value: status }
       ])
       .then(res => {
-        console.log(res);
         if (res.data.result.ok === 1) {
           setShouldRefresh(shouldRefresh + 1);
         }
@@ -77,10 +75,11 @@ export default function Todo() {
 
   const todo_jsx = [];
 
-  for (const item of task) {
+  for (var i = 0; i < task.length; i++) {
+    const item = task[i];
     if (item.isComplete) {
       todo_jsx.push(
-        <div className="itemArea toDoItem">
+        <div key={i} className="itemArea toDoItem">
           <span className="taskComplete">{item.item}</span>
           <div className="itemActions">
             <button
@@ -100,7 +99,7 @@ export default function Todo() {
       );
     } else {
       todo_jsx.push(
-        <div className="toDoItem">
+        <div key={i} className="toDoItem">
           <div id={"cannotEdit" + item._id} className="itemArea">
             <span className="taskInComplete">{item.item}</span>
             <div className="itemActions">

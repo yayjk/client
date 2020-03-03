@@ -5,10 +5,11 @@ function Login() {
   const handleLogin = e => {
     const pw = document.getElementById("password").value;
     if (pw !== "") {
-      document.getElementById("loginSpin").style.display = "block";
       if (pw === "develop") {
         localStorage.setItem("login@yayjk.dev", true);
         window.location.reload();
+      } else {
+        document.getElementById("loginSpin").style.display = "block";
       }
     }
   };
