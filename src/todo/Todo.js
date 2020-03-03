@@ -6,15 +6,18 @@ import { baseUrl } from "../constants/Constants";
 export default function Todo() {
   const [task, setTask] = useState([]);
   const [shouldRefresh, setShouldRefresh] = useState(0);
+  const [progress, setProgress] = useState(false);
 
   useEffect(() => {
     axios.get(baseUrl + "todo/all").then(res => {
       setTask(res.data.todoList);
+      setProgress(false);
     });
   }, [shouldRefresh]);
 
   const addTodo = e => {
     e.preventDefault();
+    setProgress(true);
     const item = document.getElementById("item").value;
     axios.post(baseUrl + "todo", { item }).then(res => {
       console.log(res);
@@ -26,6 +29,7 @@ export default function Todo() {
   };
 
   const deleteTodo = id => {
+    setProgress(true);
     axios
       .delete(baseUrl + "todo/" + id)
       .then(res => {
@@ -37,6 +41,7 @@ export default function Todo() {
   };
 
   const checkItem = (id, status) => {
+    setProgress(true);
     axios
       .patch(baseUrl + "todo/" + id, [
         { propName: "isComplete", value: status }
@@ -141,6 +146,20 @@ export default function Todo() {
   return (
     <div className="container" id="todoContainer">
       <section id="addTodo">
+        {!progress ? (
+          <div
+            className="spinner-border "
+            id="loginSpin"
+            role="status"
+            style={{ visibility: "hidden" }}
+          >
+            <span className="sr-only">Loading...</span>
+          </div>
+        ) : (
+          <div className="spinner-border " id="loginSpin" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        )}
         <h3>Add a Task</h3>
         <form onSubmit={addTodo}>
           <input type="text" id="item" />
