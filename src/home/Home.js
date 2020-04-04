@@ -2,8 +2,8 @@ import React from "react";
 import "./home.css";
 
 export default function Home() {
-  const goTo = link => {
-    window.location.href = "#" + link;
+  const goTo = (link) => {
+    window.location.href = "/" + link;
   };
 
   return (

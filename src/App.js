@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { HashRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Login from "./login/Login";
 import Home from "./home/Home";
 import Journal from "./journal/Journal";
@@ -36,10 +36,10 @@ function App() {
             <span id="logoO">Organizer</span>
             <span id="logoY">yayjk</span>
           </h1>
-          <a href="#home">Home</a>
-          <a href="#journal">Journal</a>
-          <a href="#todo">Todo</a>
-          <a href="#home">More</a>
+          <a href="/home">Home</a>
+          <a href="/journal">Journal</a>
+          <a href="/todo">Todo</a>
+          <a href="/home">More</a>
           {logIn_Out}
         </header>
         <Switch>
