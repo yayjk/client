@@ -10,37 +10,37 @@ import Upload from "./upload/Upload";
 
 function App() {
   let logIn_Out;
-  let isLoggedIn = false;
+  let isLoggedIn = true;
 
-  const door = () => {
-    localStorage.setItem("login@yayjk.dev", false);
-    window.location.reload();
-  };
+  // const door = () => {
+  //   localStorage.setItem("login@yayjk.dev", false);
+  //   window.location.reload();
+  // };
 
-  if (localStorage.getItem("login@yayjk.dev") === "true") {
-    isLoggedIn = true;
-    logIn_Out = (
-      <button id="logOutBtn" onClick={door}>
-        Logout
-      </button>
-    );
-  } else {
-    isLoggedIn = false;
-    logIn_Out = <span></span>;
-  }
+  // if (localStorage.getItem("login@yayjk.dev") === "true") {
+  //   isLoggedIn = true;
+  //   logIn_Out = (
+  //     <button id="logOutBtn" onClick={door}>
+  //       Logout
+  //     </button>
+  //   );
+  // } else {
+  //   isLoggedIn = false;
+  //   logIn_Out = <span></span>;
+  // }
 
   return (
     <div className="App">
       <Router>
         <header id="mainHeader">
-          <h1>
+          {/* <h1>
             <span id="logoO">Organizer</span>
             <span id="logoY">yayjk</span>
           </h1>
           <a href="/home">Home</a>
           <a href="/journal">Journal</a>
           <a href="/todo">Todo</a>
-          <a href="/home">More</a>
+          <a href="/home">More</a> */}
           {logIn_Out}
         </header>
         <Switch>
