@@ -2,12 +2,13 @@ import React from "react";
 import "./login.css";
 
 function Login() {
-  const handleLogin = e => {
+  const handleLogin = (e) => {
     const pw = document.getElementById("password").value;
     if (pw !== "") {
       if (pw === "develop") {
         localStorage.setItem("login@yayjk.dev", true);
-        window.location.reload();
+        window.location.href = "/organize";
+        // window.location.reload();
       } else {
         document.getElementById("loginSpin").style.display = "block";
       }

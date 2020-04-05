@@ -22,7 +22,8 @@ function App() {
 
   const door = () => {
     localStorage.setItem("login@yayjk.dev", false);
-    window.location.reload();
+    window.location.href = "/organize";
+    // window.location.reload();
   };
 
   if (localStorage.getItem("login@yayjk.dev") === "true") {
