@@ -7,8 +7,7 @@ function Login() {
     if (pw !== "") {
       if (pw === "develop") {
         localStorage.setItem("login@yayjk.dev", true);
-        window.location.href = "/organize";
-        // window.location.reload();
+        window.location.reload();
       } else {
         document.getElementById("loginSpin").style.display = "block";
       }
