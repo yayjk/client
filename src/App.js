@@ -102,7 +102,12 @@ function App() {
             component={Todo}
             loggedIn={isLoggedIn}
           />
-          <Route exact path="/upload" component={UploadPage} />
+          <PrivateRoute
+            exact
+            path="/upload"
+            component={UploadPage}
+            loggedIn={isLoggedIn}
+          />
         </Switch>
       </Router>
     </div>

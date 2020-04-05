@@ -10,9 +10,8 @@ const PrivateRoute = ({ component: Component, loggedIn, ...props }) => {
           <Component {...props} />
         ) : (
           <Redirect
-            exact
             to={{
-              pathname: "/organize/login",
+              pathname: "./",
               state: { referrer: props.location.pathname },
             }}
           />
@@ -31,9 +30,8 @@ export const LoggedInRoute = ({ component: Component, loggedIn, ...props }) => {
           <Component {...props} />
         ) : (
           <Redirect
-            exact
             to={{
-              pathname: "/organize/home",
+              pathname: "/home",
               state: { referrer: props.location.pathname },
             }}
           />
