@@ -38,51 +38,6 @@ function App() {
     logIn_Out = <span></span>;
   }
 
-  const Organizer = () => {
-    return (
-      <div>
-        <header id="mainHeader">
-          <h1>
-            <span id="logoO">Organizer</span>
-            <span id="logoY">yayjk</span>
-          </h1>
-          <Link to="/organize/home">Home</Link>
-          <Link to="/organize/journal">Journal</Link>
-          <Link to="/organize/todo">Todo</Link>
-          <Link to="/organize/home">More</Link>
-          {logIn_Out}
-        </header>
-        <Switch>
-          <PrivateRoute
-            path="/organize/home"
-            exact
-            component={Home}
-            loggedIn={isLoggedIn}
-          />
-          <LoggedInRoute
-            path="/organize/login"
-            exact
-            component={Login}
-            loggedIn={!isLoggedIn}
-          />
-          <PrivateRoute
-            path="/organize/journal"
-            exact
-            component={Journal}
-            loggedIn={isLoggedIn}
-          />
-          <PrivateRoute
-            path="/organize/todo"
-            exact
-            component={Todo}
-            loggedIn={isLoggedIn}
-          />
-          <Redirect from="/organize" to="/organize/login" exact />
-        </Switch>
-      </div>
-    );
-  };
-
   const saveFile = (e) => {
     setFile(e.target.files[0]);
   };
@@ -108,25 +63,46 @@ function App() {
     );
   };
 
-  const Upload = () => {
-    return (
-      <div>
-        <h1>Upload</h1>
-        <Switch>
-          <Route exact path="/upload/home" component={UploadPage} />
-          <Redirect from="/upload" to="/upload/home" exact />
-        </Switch>
-      </div>
-    );
-  };
-
   return (
     <div className="App">
       <Router>
+        <header id="mainHeader">
+          <h1>
+            <span id="logoO">Organizer</span>
+            <span id="logoY">yayjk</span>
+          </h1>
+          <a href="/home">Home</a>
+          <a href="/journal">Journal</a>
+          <a href="/todo">Todo</a>
+          <a href="/home">More</a>
+          {logIn_Out}
+        </header>
         <Switch>
-          <Route path="/organize" component={Organizer} />
-          <Route path="/upload" component={Upload} />
-          <Redirect from="*" to="/upload" exact />
+          <PrivateRoute
+            path="/home"
+            exact
+            component={Home}
+            loggedIn={isLoggedIn}
+          />
+          <LoggedInRoute
+            path="/"
+            exact
+            component={Login}
+            loggedIn={!isLoggedIn}
+          />
+          <PrivateRoute
+            path="/journal"
+            exact
+            component={Journal}
+            loggedIn={isLoggedIn}
+          />
+          <PrivateRoute
+            path="/todo"
+            exact
+            component={Todo}
+            loggedIn={isLoggedIn}
+          />
+          <Route exact path="/upload" component={UploadPage} />
         </Switch>
       </Router>
     </div>
