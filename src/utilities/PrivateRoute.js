@@ -5,14 +5,14 @@ const PrivateRoute = ({ component: Component, loggedIn, ...props }) => {
   return (
     <Route
       {...props}
-      render={props => {
+      render={(props) => {
         return loggedIn ? (
           <Component {...props} />
         ) : (
           <Redirect
             to={{
-              pathname: "./",
-              state: { referrer: props.location.pathname }
+              pathname: "/organize/login",
+              state: { referrer: props.location.pathname },
             }}
           />
         );
@@ -25,14 +25,14 @@ export const LoggedInRoute = ({ component: Component, loggedIn, ...props }) => {
   return (
     <Route
       {...props}
-      render={props => {
+      render={(props) => {
         return loggedIn ? (
           <Component {...props} />
         ) : (
           <Redirect
             to={{
-              pathname: "/home",
-              state: { referrer: props.location.pathname }
+              pathname: "/organize/home",
+              state: { referrer: props.location.pathname },
             }}
           />
         );

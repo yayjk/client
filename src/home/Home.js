@@ -3,7 +3,7 @@ import "./home.css";
 
 export default function Home() {
   const goTo = (link) => {
-    window.location.href = "/" + link;
+    window.location.href = "/organize/" + link;
   };
 
   return (
