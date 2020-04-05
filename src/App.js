@@ -126,7 +126,7 @@ function App() {
         <Switch>
           <Route path="/organize" component={Organizer} />
           <Route path="/upload" component={Upload} />
-          <Redirect from="*" to="/upload" />
+          <Redirect from="*" to="/upload" exact />
         </Switch>
       </Router>
     </div>
