@@ -9,17 +9,17 @@ export default function Todo() {
   const [progress, setProgress] = useState(false);
 
   useEffect(() => {
-    axios.get(baseUrl + "todo/all").then(res => {
+    axios.get(baseUrl + "todo/all").then((res) => {
       setTask(res.data.todoList);
       setProgress(false);
     });
   }, [shouldRefresh]);
 
-  const addTodo = e => {
+  const addTodo = (e) => {
     e.preventDefault();
     setProgress(true);
     const item = document.getElementById("item").value;
-    axios.post(baseUrl + "todo", { item }).then(res => {
+    axios.post(baseUrl + "todo", { item }).then((res) => {
       if (res.data.ok === 1) {
         setShouldRefresh(shouldRefresh + 1);
         document.getElementById("item").value = "";
@@ -27,33 +27,33 @@ export default function Todo() {
     });
   };
 
-  const deleteTodo = id => {
+  const deleteTodo = (id) => {
     setProgress(true);
     axios
       .delete(baseUrl + "todo/" + id)
-      .then(res => {
+      .then((res) => {
         if (res.data.result.ok === 1) {
           setShouldRefresh(shouldRefresh + 1);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   const checkItem = (id, status) => {
     setProgress(true);
     axios
       .patch(baseUrl + "todo/" + id, [
-        { propName: "isComplete", value: status }
+        { propName: "isComplete", value: status },
       ])
-      .then(res => {
+      .then((res) => {
         if (res.data.result.ok === 1) {
           setShouldRefresh(shouldRefresh + 1);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
-  const showCanEdit = id => {
+  const showCanEdit = (id) => {
     document.getElementById("cannotEdit" + id).style.display = "none";
     document.getElementById("canEdit" + id).style.display = "flex";
   };
@@ -63,14 +63,14 @@ export default function Todo() {
     const value = document.getElementById("editedValue" + id).value;
     axios
       .patch(baseUrl + "todo/" + id, [{ propName: "item", value }])
-      .then(res => {
+      .then((res) => {
         if (res.data.result.ok === 1) {
           document.getElementById("cannotEdit" + id).style.display = "flex";
           document.getElementById("canEdit" + id).style.display = "none";
           setShouldRefresh(shouldRefresh + 1);
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   const todo_jsx = [];
@@ -142,30 +142,31 @@ export default function Todo() {
     }
   }
 
-  return (
-    <div className="container" id="todoContainer">
-      <section id="addTodo">
-        {!progress ? (
-          <div
-            className="spinner-border "
-            id="loginSpin"
-            role="status"
-            style={{ visibility: "hidden" }}
-          >
-            <span className="sr-only">Loading...</span>
-          </div>
-        ) : (
-          <div className="spinner-border " id="loginSpin" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        )}
-        <h3>Add a Task</h3>
-        <form onSubmit={addTodo}>
-          <input type="text" id="item" />
-          <input type="submit" value="Add" />
-        </form>
-      </section>
-      <section>{todo_jsx}</section>
-    </div>
-  );
+  // return (
+  //   <div className="container" id="todoContainer">
+  //     <section id="addTodo">
+  //       {!progress ? (
+  //         <div
+  //           className="spinner-border "
+  //           id="loginSpin"
+  //           role="status"
+  //           style={{ visibility: "hidden" }}
+  //         >
+  //           <span className="sr-only">Loading...</span>
+  //         </div>
+  //       ) : (
+  //         <div className="spinner-border " id="loginSpin" role="status">
+  //           <span className="sr-only">Loading...</span>
+  //         </div>
+  //       )}
+  //       <h3>Add a Task</h3>
+  //       <form onSubmit={addTodo}>
+  //         <input type="text" id="item" />
+  //         <input type="submit" value="Add" />
+  //       </form>
+  //     </section>
+  //     <section>{todo_jsx}</section>
+  //   </div>
+  // );
+  return <p>Site access has been disabled</p>;
 }

@@ -14,15 +14,17 @@ function Login() {
     }
   };
 
-  return (
-    <div className="container" id="loginScreen">
-      <input type="password" id="password" placeholder="Enter password" />
-      <button onClick={handleLogin}>Login</button>
-      <span id="loginSpin" style={{ display: "none" }}>
-        Wrong password
-      </span>
-    </div>
-  );
+  // return (
+  //   <div className="container" id="loginScreen">
+  //     <input type="password" id="password" placeholder="Enter password" />
+  //     <button onClick={handleLogin}>Login</button>
+  //     <span id="loginSpin" style={{ display: "none" }}>
+  //       Wrong password
+  //     </span>
+  //   </div>
+  // );
+
+  return <p>Site access has been disabled</p>;
 }
 
 export default Login;
