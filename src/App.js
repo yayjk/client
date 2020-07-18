@@ -32,8 +32,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header id="mainHeader">
-          {/* <h1>
+        {/* <header id="mainHeader"> */}
+        {/* <h1>
             <span id="logoO">Organizer</span>
             <span id="logoY">yayjk</span>
           </h1>
@@ -41,8 +41,8 @@ function App() {
           <a href="/journal">Journal</a>
           <a href="/todo">Todo</a>
           <a href="/home">More</a> */}
-          {logIn_Out}
-        </header>
+        {/* {logIn_Out} */}
+        {/* </header> */}
         <Switch>
           <PrivateRoute
             path="/home"
